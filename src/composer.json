@@ -1,0 +1,20 @@
+{
+    "name": "mvc/src",
+    "description": "Estrutura MVC criada por Rogério Soares",
+    "type": "project",
+    "authors": [
+        {
+            "name": "roguitar88",
+            "email": "rogeriobsoares5@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.1"
+    },
+	"autoload": {
+		"psr-4": {
+			"App\\":"../app/",
+			"Src\\":"../src/"
+		}
+	}
+}

@@ -1,0 +1,216 @@
+@charset "utf-8";
+/* CSS Document */
+@-ms-viewport {
+    width: device-width;
+}
+
+@font-face {
+    font-family: 'cursive';
+    src: url('../fonts/cursive.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    /* [disabled]box-sizing: border-box; */
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: none;
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+    /*overscroll-behavior-y: none;*/
+}
+
+#logo {
+    width: 10%;
+    height: auto;
+    margin-left: 40px;
+}
+
+.logoname {
+    font-family: 'cursive';
+    font-size: 3.3em;
+    color: red;
+}
+
+.info-box {
+    border: 3px solid #ccc;
+    /*
+    width: 80%;
+    height: 250px;
+    padding: 20px;
+    margin-top: 40px;
+    */
+    height: 220px;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.mainwrapper {
+    width: 100%;
+    min-height: 100%;
+    /* overflow: auto; */
+    position: relative;
+    margin: auto;
+    border:0px solid black;
+}
+
+.section1 {
+    width: 80%;
+    min-width:320px;
+    height: auto;
+    position: relative;
+    /* overflow: auto; */
+    margin:auto;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 3%;
+    padding-bottom: 50px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section2 {
+    width: 100%;
+    height: auto;
+    position: relative;
+    /* overflow: auto; */
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-top: 4%;
+    padding-bottom: 50px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+textarea {
+    resize: none;
+}
+
+header > .navbar {
+    background-color: #478166;
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+.footerlinks{
+    font-size:90%;
+}
+
+.footerlinks li{
+    margin-right:20px;
+}
+
+.footerlinks li a{
+    color:black;
+    text-decoration:none;
+}
+
+.footerlinks li a:hover{
+    text-decoration: none;
+    color:grey;
+}
+
+.socialicons{
+    font-size:100%;
+}
+
+.socialicons li{
+    padding-right: 30px;
+}
+
+.socialicons li a{
+    color:grey;
+    text-decoration:none;
+}
+
+.socialicons li a:hover{
+    text-decoration: none;
+    color:black;
+}
+
+/* Footer */
+/* Wrapper for page content to Push down footer */
+main {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -190px;
+}
+
+/* Set the fixed height of the footer here */
+#Push,
+#footer {
+    height: 190px;
+}
+
+.footer-logo {
+    color: #ccc;
+    font-family: 'cursive';
+}
+
+#footer2 {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    text-align: left;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-size: 100%;
+    color: white;
+}
+
+#footer2 a, #footer2 a:hover {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Based on Bootstrap Grid System:
+/* XS */
+@media only screen and (max-width: 768px){   /*and (min-width: 320px)*/
+    .section2 {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    
+    .info-box {
+        height: auto;
+    }
+}
+
+/* SM */
+@media only screen and (min-width: 768px) and (max-width: 992px){
+    .info-box {
+        height: auto;
+    }
+}
+
+/* MD */
+@media only screen and (min-width: 992px) and (max-width: 1200px){
+    .info-box {
+        height: 250px;
+    }
+}
+
+/* LG */
+@media only screen and (min-width: 1200px){
+}
+
