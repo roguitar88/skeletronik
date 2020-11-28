@@ -3,6 +3,10 @@
 
 This is part of a bigger project made by a developer for developers. This is a simple open-source MVC structure for study purposes and I mean to enhance it with time and mutual collabs. Collaborators will have their names displayed on the future official website.
 
+###### General Configuration of your Website
+
+All the configuration of your website is inside config/config.php. There you can set your email credentials and database settings. It's very simple.
+
 ###### Apache Configuration
 ```
 <VirtualHost *:80> 
