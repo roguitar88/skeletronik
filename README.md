@@ -5,7 +5,7 @@ This is part of a bigger project made by a developer for developers. This is a s
 
 ###### General Configuration of your Website
 
-All the configuration of your website is inside config/config.php. There you can set your email credentials and database settings. It's very simple.
+All the configuration of your website is inside *config/config.php*. There you can set your email credentials and database settings. It's very simple.
 
 ###### Apache Configuration
 ```
@@ -20,14 +20,14 @@ All the configuration of your website is inside config/config.php. There you can
 </VirtualHost>
 ```
 
-And inside our .htaccess we have:
+And inside our *.htaccess* we have:
 ```
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ /public/index.php?url=$1 [QSA,L]
 ```
 
-Note: the .htaccess is already there.
+Note: the *.htaccess* is already there.
 
 ###### Nginx Configuration
 ```
@@ -71,7 +71,7 @@ Note: When using Nginx server, I detected there's an issue with the routes (frie
 
 ###### How routes were configured
 
-In src/Traits/TraitUrlParser.php, we have this:
+In *src/Traits/TraitUrlParser.php*, we have this:
 ```
 namespace Src\Traits;
 
@@ -87,7 +87,7 @@ trait TraitUrlParser {
 }
 ```
 
-And in src/Class/ClassRoutes I created this method to get the route:
+And in *src/Class/ClassRoutes* I created this method to get the route:
 ```
     #Method for returning the route
     public function getRoute()
@@ -116,7 +116,7 @@ And in src/Class/ClassRoutes I created this method to get the route:
     }
 ```
 
-Also check app/Dispatch.php, which is the mainly responsible for treating the URL responses and controllers:
+Also check *app/Dispatch.php*, which is the mainly responsible for treating the URL responses and controllers:
 
 Enjoy it and implement it on your websites and projects.
 
