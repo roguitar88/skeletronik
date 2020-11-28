@@ -67,8 +67,6 @@ server {
 
 ```
 
-Note: When using Nginx server, I detected there's an issue with the routes (friendly URL). For example: http://skeletronik.test/?url=login is working, but not http://skeletronik.test/login, and I'll explain more about it below.
-
 ###### How routes were configured
 
 In *src/Traits/TraitUrlParser.php*, we have this:
@@ -116,7 +114,7 @@ And in *src/Class/ClassRoutes* I created this method to get the route:
     }
 ```
 
-Also check *app/Dispatch.php*, which is the mainly responsible for treating the URL responses and controllers:
+Also have a look at *app/Dispatch.php*, which is the mainly responsible for treating the URL responses and controllers:
 
 Enjoy it and implement it on your websites and projects.
 
