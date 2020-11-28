@@ -2,7 +2,7 @@
         <div class="section1">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="text-center logoname">Skeletronik</h1>
+                    <h1 class="text-center logoname"><img style="width:5%; height: auto;" src="<?= DIRIMG ?>eskeleton.svg" /> Skeletronik</h1>
                 </div>
             </div>
             <div class="row">

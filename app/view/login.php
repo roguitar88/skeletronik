@@ -1,6 +1,6 @@
     <!-- secão 1 -->
     <div class="section2">
-        <h1 class="text-center logoname">Skeletronik</h1>
+        <h1 class="text-center logoname"><img style="width:10%; height: auto;" src="<?= DIRIMG ?>eskeleton.svg" /> Skeletronik</h1>
         <br/><br/>
         <form name="login2" method="post">
             <!--<h2 class="titulo">FAZER LOGIN NO PORTAL</h2>-->
