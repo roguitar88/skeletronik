@@ -65,7 +65,7 @@ class Dispatch extends ClassRoutes
     }
 
     #Controller Parameter Addition Method
-    public function addParam()
+    private function addParam()
     {
         $countArray = count($this->parseUrl());
         
@@ -77,8 +77,6 @@ class Dispatch extends ClassRoutes
             }
 
         }
-        //var_dump($this->getParam());
-
     }
 
 }
