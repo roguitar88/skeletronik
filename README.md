@@ -42,7 +42,7 @@ server {
 	
     location / {
       if (!-f $request_filename) {
-        rewrite ^(.*)$ /public/index.php?url=$uri$is_args$args last;
+        rewrite ^/(.*)$ /public/index.php?url=$1 last;
         break;
       }
     }
