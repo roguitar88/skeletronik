@@ -29,7 +29,7 @@
                 <div class="col-lg-6">
                     <div class="col-lg-12 info-box">
                         <h2 style="color: #ccc;">Other Tools</h2>
-                        <p>We also have the pleasure of teaching you about other tools, too. You know, composer is largely used by the world's community of developers. But we also have Docker and other stuff. So... Are you ready to go on this journey? I am.</p>
+                        <p>We also have the great pleasure of teaching you about other tools, too. You know, composer is largely used by the world's community of developers. But we also have Docker and other stuff. So... Are you ready to go on this journey? I am.</p>
                     </div>
                 </div>
             </div>
