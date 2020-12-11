@@ -39,16 +39,27 @@ define('MAIL_USERNAME', 'meuemail@gmail.com');
 define('MAIL_PASSWORD', 'senha');
 define('MAIL_ENCRYPTION', 'tls');
 
+
 #USER'S IP AND HOSTNAME
 define('IP', $ip);
 define('HOSTNAME', $hostname);
 
+
+#GEOLOCATION
+/*
+define('CITY', $city);
+define('REGION', $region);
+define('COUNTRY', $country);
+*/
+
 #lANGUAGE
 define('LANG','pt-br');
+
 
 #CONSTANTS FOR BOOLEANS
 define('ONE', 1);  //TRUE or yes
 define('ZERO', 0);  //FALSE or no
+
 
 #RANDOM CODE GENERATOR
 define('CODE', $code);

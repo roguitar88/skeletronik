@@ -27,6 +27,13 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ /public/index.php?url=$1 [QSA,L]
 ```
 
+If you want to access the project via localhost or 127.0.0.1, just do it:
+```
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /skeletronik/public/index.php?url=$1 [QSA,L]
+```
+
 Note: the *.htaccess* is already there.
 
 ###### Nginx Configuration

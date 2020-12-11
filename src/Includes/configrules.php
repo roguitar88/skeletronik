@@ -52,18 +52,35 @@ getenv('HTTP_FORWARDED')?:
 getenv('REMOTE_ADDR');
 */
 
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    //ip from share internet
+$ip = '';
+if (isset($_SERVER['HTTP_CLIENT_IP'])) {
     $ip = $_SERVER['HTTP_CLIENT_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    //ip pass from proxy
+} elseif (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
     $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-} else {
+} elseif (isset($_SERVER['HTTP_X_FORWARDED'])) {
+    $ip = $_SERVER['HTTP_X_FORWARDED'];
+} elseif (isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+    $ip = $_SERVER['HTTP_FORWARDED_FOR'];
+} elseif (isset($_SERVER['HTTP_FORWARDED'])) {
+    $ip = $_SERVER['HTTP_FORWARDED'];
+} elseif (isset($_SERVER['REMOTE_ADDR'])) {
     $ip = $_SERVER['REMOTE_ADDR'];
-}        
+} else {
+    $ip = 'UNKNOWN';
+}
 
 $hostname = gethostbyaddr($ip);
 
+
+#GEOLOCATION FINDER
+//https://ipstack.com/documentation - Access this website to get your key, uncomment the code below (go to config/config.php too and uncomment the constants related to that) and use it there:
+/*
+$json  = file_get_contents("http://api.ipstack.com/189.5.178.55?access_key=[your_access_key_here]");
+$json  =  json_decode($json ,true);
+$country =  $json['country_name'];
+$region= $json['region_name'];
+$city = $json['city'];
+*/
 
 #RANDOM CODE GENERATOR
 $code = substr(md5(uniqid(mt_rand(), true)), 0, 8);
