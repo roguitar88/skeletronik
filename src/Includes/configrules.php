@@ -6,7 +6,7 @@ session_start();
 //The main rules for the variables retrieved in config.php are defined here
 #MAIN URL OR DOMAIN ROOT
 if ($_SERVER['HTTP_HOST'] == "localhost" || $_SERVER['HTTP_HOST'] == "127.0.0.1") {
-    $innerFolder = "mvc/";
+    $innerFolder = "skeletronik/";
     $urlHost = "/";
 } else {
     $innerFolder = "";
