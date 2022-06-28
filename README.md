@@ -123,7 +123,7 @@ And in *src/Class/ClassRoutes* I created this method to get the route:
 
 Also have a look at *app/Dispatch.php*, which is the mainly responsible for treating the URL responses and controllers.
 
-###### Apache Configuration
+###### Git Deploy (alternative faster solution to FTP)
 
 You can also manage all your deployment processes (via Git) through our class *ControllerDeployExec.php*, where you can create a method for each of your projects/websites. This way, you can update your development or production area/server on the click of a button. That easy!
 
