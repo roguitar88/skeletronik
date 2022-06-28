@@ -9,6 +9,7 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
 {
     // Notice: This is using a lib that you can find at https://packagist.org/packages/czproject/git-php. This project already comes with that lib (that is installed via composer).
     // In production, unfortunately folders and files should be set to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ or you can contact me via +5562982570993, where you can get the ready whole project
+    // Don't forget to run 'git pull' in your server
     public function __construct()
     {
         parent::__construct();

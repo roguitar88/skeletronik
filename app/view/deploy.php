@@ -5,6 +5,7 @@
         <!-- <form method="post"> -->
         <h2 class="title">Deploy with Git</h2>
         <div class="form-group">
+            <!-- Don't forget to run 'git pull' in your server -->
             <label for="commit-message">Commit message</label>
             <input name="commit-message" id="commit-message" type="text" maxlength="50" placeholder="Example: updating login form" class="form-control">
             <span class="error-msg" id="commit-message-validation"></span>
