@@ -1,6 +1,7 @@
     <!-- secão 1 -->
     <div class="section2">
         <h1 class="text-center logoname"><img style="width:10%; height: auto;" src="<?= DIRIMG ?>eskeleton.svg" /> Skeletronik</h1>
+        <p class="text-center small text-monospace">Git deployment From localhost/development to production/server</p>
         <br/><br/>
         <!-- <form method="post"> -->
         <h2 class="title">Deploy with Git</h2>
