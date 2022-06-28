@@ -183,6 +183,83 @@ main {
     font-weight: bold;
 }
 
+.error-msg {
+    /* color: #FA0E20; */
+    color: orangered;
+    margin-top: 10px;
+    font-size: .8em;
+    font-weight: 700;
+    display: block;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(204, 204, 204, .8);
+    /* background-color: rgba(13, 16, 21, .8); */
+    /*background-color: rgba(255, 255, 255, .99);*/
+    position: fixed;
+    /*border: 1px solid red;*/
+    z-index: 9999;
+    display: none;
+    /*visibility: hidden;*/
+    top: 0;
+}
+
+.spin-wrapper {
+    position: relative;
+    display: block;
+    top: 45%;
+    left: 50%;
+    width: 5%;
+    /*border: 1px solid red;*/
+}
+
+.spin::before {
+    animation: 1.5s linear infinite spinner;
+    animation-play-state: inherit;
+    border: solid 5px #cfd0d1;
+    border-bottom-color: #1c87c9;
+    border-radius: 50%;
+    content: "";
+    height: 80px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 80px;
+    will-change: transform;
+}
+
+.animated-ellipsis {
+    width: 20%;
+    height: 100px;
+    margin: auto;
+    top: 40vh;
+    /*left: 40%;*/
+    text-align: center;
+    /*display: flex;*/
+    display: block;
+    align-items: center;
+    /*border: 3px solid black;*/
+    position: relative;
+}
+
+.await {
+    text-align: center;
+    width: 10%;
+    height: auto;
+    padding: 5px;
+    /* border: 1px solid black; */
+    margin: auto;
+    display: block;
+    align-items: center;
+    top: 40vh;
+    left: 45%;
+    font-weight: bolder;
+    position: absolute;
+}
+
 /* Based on Bootstrap Grid System:
 /* XS */
 @media only screen and (max-width: 768px){   /*and (min-width: 320px)*/

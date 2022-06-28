@@ -121,7 +121,13 @@ And in *src/Class/ClassRoutes* I created this method to get the route:
     }
 ```
 
-Also have a look at *app/Dispatch.php*, which is the mainly responsible for treating the URL responses and controllers:
+Also have a look at *app/Dispatch.php*, which is the mainly responsible for treating the URL responses and controllers.
+
+###### Apache Configuration
+
+You can also manage all your deployment processes (via Git) through our class *ControllerDeployExec.php*, where you can create a method for each of your projects/websites. This way, you can update your development or production area/server on the click of a button. That easy!
+
+This is possible thanks to the lib by *Jan Pecha*, available at **https://packagist.org/packages/czproject/git-php**. Just check it for further details on git settings and calls using PHP.
 
 Enjoy it and implement it on your websites and projects.
 

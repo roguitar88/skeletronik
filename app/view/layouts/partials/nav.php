@@ -10,6 +10,7 @@
                 <ul class="navbar-nav"> <!-- id="nav-ul" -->
                     <li class="nav-item"><a class="nav-link" href="<?= DIRPAGE ?>login">LOGIN</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= DIRPAGE ?>register">SIGN UP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= DIRPAGE ?>deploy">DEPLOY</a></li>
                 </ul>
             </div>
         </nav>

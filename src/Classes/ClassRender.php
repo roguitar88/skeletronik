@@ -1,4 +1,5 @@
 <?php
+// declare(strict_types=1);
 namespace Src\Classes;
 //use App\Model\ModelUser;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -12,6 +13,8 @@ class ClassRender
     private $pageTitle;
     private $metaDescription;
     private $metaKeywords;
+    // private ?string $assets = null;
+    private $assets;
     private $head;
     protected $model;
     
@@ -177,6 +180,16 @@ class ClassRender
     function setHead($head)
     {
         $this->head = $head;
+    }
+
+    function getAssets()
+    {
+        return $this->assets;
+    }
+
+    function setAssets($assets)
+    {
+        $this->assets = $assets;
     }
 
     function getModel()

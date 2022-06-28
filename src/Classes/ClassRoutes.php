@@ -21,7 +21,9 @@ class ClassRoutes
             "" => "ControllerHome",
             "home" => "ControllerHome",
             "login" => "ControllerLogin",
-            "register" => "ControllerRegister"
+            "register" => "ControllerRegister",
+            "deploy" => "ControllerDeploy",
+            "deploy-exec" => "ControllerDeployExec"
         );
 
         if (array_key_exists($i, $this->route)) {
