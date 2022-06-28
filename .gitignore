@@ -1,1 +1,3 @@
 /src/vendor/
+/src/composer.lock
+/src/composer.json
