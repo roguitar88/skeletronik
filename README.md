@@ -45,7 +45,7 @@ server {
     
     index index.html index.htm index.php;
  
-	  rewrite_log on;
+	rewrite_log on;
 	
     location / {
       if (!-f $request_filename) {
