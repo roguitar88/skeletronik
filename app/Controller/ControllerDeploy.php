@@ -10,7 +10,7 @@ class ControllerDeploy extends ClassRender implements InterfaceView
     {
         parent::__construct();
         //$this->logout();
-        $this->setPageTitle("MVC - Deploy com Git");
+        $this->setPageTitle("Skeletronik - Deploy com Git");
         $this->setMetaDescription("Deploy com Git");
         $this->setMetaKeywords("MVC, Framework, Desenvolvimento Web, POO, PHP, Deploy, Git");
         $this->setDir("deploy.php");
