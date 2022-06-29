@@ -5,18 +5,22 @@ use Src\Classes\ClassRender;
 use Src\Interfaces\InterfaceView;
 use CzProject\GitPhp\Git;
 
+
 class ControllerDeployExec extends ClassRender implements InterfaceView
 {
     // Notice: This is using a lib that you can find at https://packagist.org/packages/czproject/git-php. This project already comes with that lib (that is installed via composer).
-    // In production, unfortunately folders and files should be set to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ or you can contact me via +5562982570993, where you can get the ready whole project
-    // Don't forget to run 'git pull' in your server
+    // In production, unfortunately folders and files should be degraded to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ and that you can find here in this project (in the directory app/Net)
+    // Don't forget to run 'git pull' in your server or you can use the function git_pull_in_server() to automate it.
     public function __construct()
     {
         parent::__construct();
         // $this->olimppius_deploy();
         $this->zuump_deploy();
+        // $this->git_pull_in_server();
     }
 
+    // You can create a method for each of your projects
+    // Zuump project
     public function zuump_deploy()
     {
         try {
@@ -34,6 +38,7 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
 
                 $repo = $git->open('C:\laragon\www\zuump');
 
+                $repo->checkout('main');
                 $repo->pull(); // ['origin', 'main']
                 $repo->checkout('development');
                 $repo->pull(['origin', 'main']);
@@ -43,6 +48,7 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
                 $repo->checkout('main');
                 $repo->merge('development');
                 $repo->push(['origin', 'main']);
+                // $this->git_pull_in_server();
 
                 $result = array(
                     "success" => true,
@@ -59,6 +65,7 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
         echo json_encode($result);
     }
 
+    // Olimppi.us project
     public function olimppius_deploy()
     {
         /*
@@ -97,5 +104,19 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
 
         return json_encode($result);       
         */ 
+    }
+
+    public function git_pull_in_server()
+    {
+        // Sources: http://phpseclib.sourceforge.net/ and https://stackoverflow.com/questions/1598231/how-to-run-php-exec-as-root
+        include(__DIR__ . "./../../src/Includes/Net/SSH2.php");
+        $ssh = new \Net_SSH2('vmi759277');
+        $ssh->login('admin', 'mariamole365');
+
+        $ssh->read('[prompt]');
+        $ssh->write("cd /var/www/html/zuump && sudo git pull\n");
+        $ssh->read('Password:');
+        $ssh->write("mariamole365\n");
+        // echo $ssh->read('[prompt]');
     }
 }
