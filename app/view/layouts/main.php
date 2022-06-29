@@ -39,10 +39,19 @@
 <?= $this->addFooter() ?>
 
 <!-- Processing spinner -->
+<!--
 <div class="loading">
     <div class="await">Aguarde...</div>
     <div class="animated-ellipsis">
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+</div>
+-->
+
+<div class="loading">
+    <!-- <div class="await">Aguarde</div> -->
+    <div class="animated-ellipsis">
+        <div class="lds-ripple"><div></div><div></div></div>
     </div>
 </div>
 

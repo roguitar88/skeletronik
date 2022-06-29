@@ -9,7 +9,7 @@ use CzProject\GitPhp\Git;
 class ControllerDeployExec extends ClassRender implements InterfaceView
 {
     // Notice: This is using a lib that you can find at https://packagist.org/packages/czproject/git-php. This project already comes with that lib (that is installed via composer).
-    // In production, unfortunately folders and files should be degraded to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ and that you can find here in this project (in the directory app/Net)
+    // In production, unfortunately folders and files should be degraded to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ and that you can find here in this project (in the directory src/Includes/Net)
     // Don't forget to run 'git pull' in your server or you can use the function git_pull_in_server() to automate it.
     public function __construct()
     {
@@ -111,12 +111,12 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
         // Sources: http://phpseclib.sourceforge.net/ and https://stackoverflow.com/questions/1598231/how-to-run-php-exec-as-root
         include(__DIR__ . "./../../src/Includes/Net/SSH2.php");
         $ssh = new \Net_SSH2('vmi759277');
-        $ssh->login('admin', 'mariamole365');
+        $ssh->login('admin', 'mariamole123');
 
         $ssh->read('[prompt]');
         $ssh->write("cd /var/www/html/zuump && sudo git pull\n");
         $ssh->read('Password:');
-        $ssh->write("mariamole365\n");
+        $ssh->write("mariamole123\n");
         // echo $ssh->read('[prompt]');
     }
 }
