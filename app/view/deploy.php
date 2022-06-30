@@ -1,7 +1,6 @@
     <!-- secão 1 -->
     <div class="section2">
         <h1 class="text-center logoname"><img style="width:10%; height: auto;" src="<?= DIRIMG ?>eskeleton.svg" /> Skeletronik</h1>
-        <p class="text-center small text-monospace">Git deployment From localhost/development to production/server</p>
         <!-- <p class="text-center" style="font-size: .6em;"><strong>Note:</strong> This is for Windows users only. Always leave Git Bash terminal open.</p> -->
         <br/>
         <!-- <form method="post"> -->
@@ -16,4 +15,7 @@
             <input type="submit" name="send-commit" id="send-commit" value="Send to production" class="btn btn-success">
         </div>
         <!-- </form> -->
+        <br><br>
+        <p class="small text-monospace"><strong>* Send to production:</strong> Deploy from localhost/development to production/server via Git</p>
+        <p class="small text-monospace"><strong>** Update database:</strong> Replace database with the most recent/updated version</p>
     </div>

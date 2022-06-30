@@ -120,4 +120,9 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
         $ssh->read('[prompt]');
         // echo $ssh->read('[prompt]');
     }
+
+    public function update_database()
+    {
+
+    }
 }
