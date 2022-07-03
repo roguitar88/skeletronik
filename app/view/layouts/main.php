@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?= $this->getMetaDescription() ?>"/>
     <meta name="keywords" content="<?= $this->getMetaKeywords() ?>"/>
-    <link rel="shortcut icon" href="<?= DIRPAGE ?>favicon.ico" type="image/x-icon">
-    <link rel="icon" href="<?= DIRPAGE ?>favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= DIRPAGE ?>public/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?= DIRPAGE ?>public/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/e7ed460553.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?= DIRJS ?>jquery.js"></script>
 

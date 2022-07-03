@@ -25,7 +25,7 @@ define('PASS','sua_senha');
 
 #LOCAL DATABASE CONNECTION SETTINGS
 define('LH_HOST','localhost');
-define('LH_DB','paoleitecafe');
+define('LH_DB','skeletronik');
 define('LH_USER','root');
 define('LH_PASS','');
 

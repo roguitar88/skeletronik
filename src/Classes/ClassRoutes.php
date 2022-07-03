@@ -23,7 +23,8 @@ class ClassRoutes
             "login" => "ControllerLogin",
             "register" => "ControllerRegister",
             "deploy" => "ControllerDeploy",
-            "deploy-exec" => "ControllerDeployExec"
+            "deploy-exec" => "ControllerDeployExec",
+            "update-db" => "ControllerUpdateDB",
         );
 
         if (array_key_exists($i, $this->route)) {
