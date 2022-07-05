@@ -4,16 +4,19 @@ namespace App\Controller;
 use Src\Classes\ClassRender;
 use Src\Interfaces\InterfaceView;
 use CzProject\GitPhp\Git;
+use phpseclib3\Net\SSH2;
+use phpseclib3\Crypt\PublicKeyLoader;
 
 class ControllerDeployExec extends ClassRender implements InterfaceView
 {
     // Notice: This is using a lib that you can find at https://packagist.org/packages/czproject/git-php. This project already comes with that lib (that is installed via composer).
-    // In production, unfortunately folders and files should be degraded to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ and that you can find here in this project (in the directory src/Includes/Net)
+    // In production, unfortunately folders and files should be degraded to 'www-data', as far as 'owner/group' is concerned. Anyhow, I don't recommend it. There's an alternative solution you can get via http://phpseclib.sourceforge.net/ or via https://phpseclib.com/docs/connect (this is already one of the dependencies that will be automatically generated via composer).
     // Don't forget to run 'git pull' in your server or you can use the function git_pull_in_server() to automate it. The downside is that it can take longer.
     public function __construct()
     {
         parent::__construct();
         $this->deploy();
+        // $this->git_pull_in_server_2(0);
     }
 
     public function deploy()
@@ -46,6 +49,7 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
                     $repo->merge('development');
                     $repo->push(['origin', 'main']);
                     $this->git_pull_in_server($project);
+                    $this->git_pull_in_server_2($project);
                 } elseif ($project == 1) { // Zuump
                     $repo = $git->open('C:\laragon\www\zuump');
 
@@ -87,16 +91,14 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
         echo json_encode($result);
     }
 
+    // Contabo server
     public function git_pull_in_server($project)
     {
-        // Sources: http://phpseclib.sourceforge.net/ and https://stackoverflow.com/questions/1598231/how-to-run-php-exec-as-root
-        include(__DIR__ . "./../../src/Includes/Net/SSH2.php");
-        
-        $ssh = new \Net_SSH2('999.999.999.99');
+        // Sources: http://phpseclib.sourceforge.net/, https://phpseclib.com/docs/auth and https://stackoverflow.com/questions/1598231/how-to-run-php-exec-as-root
+        $ssh = new SSH2('999.999.999.99');
         $ssh->login('admin', 'mariamole123');
 
         $ssh->read('[prompt]');
-        // $ssh->write("cd /var/www/html/zuump && sudo git pull\n");
         if ($project == 0) { // Olimppi.us
             $ssh->write("cd /var/www/html/olimppius && sudo git pull && sudo php artisan route:cache\n");
         } elseif ($project == 1) { // Zuump
@@ -107,9 +109,37 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
             $ssh->write("cd /var/www/html/lacoprofissional2 && sudo git pull\n");
         }
         */
-        // $ssh->read('Password:');
-        // $ssh->write("mariamole123\n");
         $ssh->read('[prompt]');
-        // echo $ssh->read('[prompt]');
+    }
+    
+    // Oracle server
+    public function git_pull_in_server_2($project)
+    {
+        try {
+            $key = PublicKeyLoader::load(file_get_contents('C:\Users\User\Downloads\private.ppk'));
+
+            $ssh = new SSH2('999.99.99.99');
+            $ssh->login('ubuntu', $key);
+
+            $ssh->read('[prompt]');
+            if ($project == 0) { // Olimppi.us
+                $ssh->write("cd /var/www/html/olimppius && sudo git pull && sudo php artisan route:cache\n");
+            } elseif ($project == 1) { // Zuump
+                $ssh->write("cd /var/www/html/zuump && sudo git pull && sudo php artisan route:cache\n"); // in case you're using Laravel
+            } 
+            $ssh->read('[prompt]');
+
+            $result = array(
+                "success" => true,
+                "msg" => 'It\'s finally got to connect'
+            );
+        } catch (\Exception $e) {
+            $result = array(
+                "success" => false,
+                "error" => "Connection error! ".$e->getMessage()
+            );            
+        }
+
+        echo json_encode($result);
     }
 }
