@@ -16,7 +16,6 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
     {
         parent::__construct();
         $this->deploy();
-        // $this->git_pull_in_server_2(0);
     }
 
     public function deploy()
@@ -95,8 +94,8 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
     public function git_pull_in_server($project)
     {
         // Sources: http://phpseclib.sourceforge.net/, https://phpseclib.com/docs/auth and https://stackoverflow.com/questions/1598231/how-to-run-php-exec-as-root
-        $ssh = new SSH2('999.999.999.99');
-        $ssh->login('admin', 'mariamole123');
+        $ssh = new SSH2('111.111.111.11');
+        $ssh->login('admin', 'mariamole69');
 
         $ssh->read('[prompt]');
         if ($project == 0) { // Olimppi.us
@@ -115,31 +114,17 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
     // Oracle server
     public function git_pull_in_server_2($project)
     {
-        try {
-            $key = PublicKeyLoader::load(file_get_contents('C:\Users\User\Downloads\private.ppk'));
+        $key = PublicKeyLoader::load(file_get_contents('C:\Users\User\Downloads\private.ppk'));
 
-            $ssh = new SSH2('999.99.99.99');
-            $ssh->login('ubuntu', $key);
+        $ssh = new SSH2('222.22.22.22');
+        $ssh->login('ubuntu', $key);
 
-            $ssh->read('[prompt]');
-            if ($project == 0) { // Olimppi.us
-                $ssh->write("cd /var/www/html/olimppius && sudo git pull && sudo php artisan route:cache\n");
-            } elseif ($project == 1) { // Zuump
-                $ssh->write("cd /var/www/html/zuump && sudo git pull && sudo php artisan route:cache\n"); // in case you're using Laravel
-            } 
-            $ssh->read('[prompt]');
-
-            $result = array(
-                "success" => true,
-                "msg" => 'It\'s finally got to connect'
-            );
-        } catch (\Exception $e) {
-            $result = array(
-                "success" => false,
-                "error" => "Connection error! ".$e->getMessage()
-            );            
-        }
-
-        echo json_encode($result);
+        $ssh->read('[prompt]');
+        if ($project == 0) { // Olimppi.us
+            $ssh->write("cd /var/www/html/olimppius && sudo git pull && sudo php artisan route:cache\n");
+        } elseif ($project == 1) { // Zuump
+            $ssh->write("cd /var/www/html/zuump && sudo git pull && sudo php artisan route:cache\n"); // in case you're using Laravel
+        } 
+        $ssh->read('[prompt]');
     }
 }

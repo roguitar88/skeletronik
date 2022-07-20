@@ -58,6 +58,11 @@ function update_database() {
     })
 }
 
+// Delete validation message on typing:
+document.querySelector('#commit-message').addEventListener("keyup", () => {
+    document.querySelector('#commit-message-validation').innerHTML = '';
+})
+
 document.querySelector("#send-commit").addEventListener("click", (e) => {
     e.preventDefault();
     $("#send-commit").prop("disabled", true);
