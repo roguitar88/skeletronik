@@ -138,3 +138,5 @@ Author: Rogério Brito Soares
 ###### We need your help
 
 Although this project is open source and freely available to the public, we also have some expenses (money and time costs). We also aim to maintaing this initiative and we immensely appreciate collaboration be it in cash or code. The link for donation is [https://www.paypal.com/donate/?hosted_button_id=LCHZQ8Q7Z579S](https://www.paypal.com/donate/?hosted_button_id=LCHZQ8Q7Z579S). If you're Brazilian, you can send us money via PIX by using this key: ***rogeriobsoares5@gmail.com***. Thank you and God bless you.
+
+![Donate to us](https://olimppi.us/img/qr_code_donation.png)
