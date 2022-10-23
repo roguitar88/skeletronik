@@ -6,11 +6,11 @@
         <!-- <form method="post"> -->
         <h2 class="title">Deploy with Git</h2>
         <div class="form-group">
-            <label>Selecione um projeto</label>
+            <label>Select a project</label>
             <select name="project" id="project" class="form-control">
                 <option value="0">Olimppi.us</option>
                 <option value="1" selected>Zuump</option>
-                <!-- <option value="2">Lacoprofissional.tv</option> -->
+                <option value="2">BBTracker</option>
             </select>
         </div>
         <div class="form-group">
@@ -27,4 +27,5 @@
         <br><br>
         <p class="small text-monospace"><strong>* Send to production:</strong> Deploy from localhost/development to production/server via Git</p>
         <p class="small text-monospace"><strong>** Update database:</strong> Replace database with the most recent/updated version from server</p>
+        <p class="small text-monospace"><strong>*** Donate to us:</strong> If you're Brazilian, that's my PIX key: <strong>rogeriobsoares5@gmail.com</strong>. If you live outside Brazil, you can donate us via PayPal, by clicking the link: <a href="https://www.paypal.com/donate/?hosted_button_id=LCHZQ8Q7Z579S" target="_blank">https://www.paypal.com/donate/?hosted_button_id=LCHZQ8Q7Z579S</a>. Your donation is very important to continue enhancing this project. God bless you.</p>
     </div>

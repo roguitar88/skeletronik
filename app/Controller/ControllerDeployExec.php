@@ -16,6 +16,7 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
     {
         parent::__construct();
         $this->deploy();
+        // $this->git_pull_in_server_2('ok');
     }
 
     public function deploy()
@@ -37,33 +38,41 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
                 if ($project == 0) { // Olimppi.us
                     $repo = $git->open('C:\laragon\www\olimppius');
 
-                    $repo->checkout('main');
+                    // $repo->checkout('main');
                     $repo->pull(); // ['origin', 'main']
-                    $repo->checkout('development');
-                    $repo->pull(['origin', 'main']);
+                    // $repo->checkout('development');
+                    // $repo->pull(['origin', 'main']);
                     $repo->addAllChanges();
                     $repo->commit($commit_message);
-                    $repo->push(['origin', 'development']);
-                    $repo->checkout('main');
-                    $repo->merge('development');
+                    // $repo->push(['origin', 'development']);
+                    // $repo->checkout('main');
+                    // $repo->merge('development');
                     $repo->push(['origin', 'main']);
-                    $this->git_pull_in_server($project);
+                    // $this->git_pull_in_server($project);
                     $this->git_pull_in_server_2($project);
                 } elseif ($project == 1) { // Zuump
                     $repo = $git->open('C:\laragon\www\zuump');
 
-                    $repo->checkout('main');
+                    // $repo->checkout('main');
                     $repo->pull(); // ['origin', 'main']
-                    $repo->checkout('development');
-                    $repo->pull(['origin', 'main']);
+                    // $repo->checkout('development');
+                    // $repo->pull(['origin', 'main']);
                     $repo->addAllChanges();
                     $repo->commit($commit_message);
-                    $repo->push(['origin', 'development']);
-                    $repo->checkout('main');
-                    $repo->merge('development');
+                    // $repo->push(['origin', 'development']);
+                    // $repo->checkout('main');
+                    // $repo->merge('development');
                     $repo->push(['origin', 'main']);
-                    $this->git_pull_in_server($project);
-                } 
+                    $this->git_pull_in_server_2($project);
+                } elseif ($project == 2) { // BBTracker
+                    $repo = $git->open('C:\laragon\www\bbtracker');
+
+                    $repo->pull(); // ['origin', 'main']
+                    $repo->addAllChanges();
+                    $repo->commit($commit_message);
+                    $repo->push(['origin', 'main']);
+                    $this->git_pull_in_server_2($project);
+                }
                 /*
                 elseif ($project == 2) { // Lacoprofissional.tv
                     $repo = $git->open('C:\laragon\www\lacoprofissional2');
@@ -90,12 +99,13 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
         echo json_encode($result);
     }
 
+    /*
     // Contabo server
     public function git_pull_in_server($project)
     {
         // Sources: http://phpseclib.sourceforge.net/, https://phpseclib.com/docs/auth and https://stackoverflow.com/questions/1598231/how-to-run-php-exec-as-root
-        $ssh = new SSH2('111.111.111.11');
-        $ssh->login('admin', 'mariamole69');
+        $ssh = new SSH2('207.244.231.35');
+        $ssh->login('admin', 'rapadura6969');
 
         $ssh->read('[prompt]');
         if ($project == 0) { // Olimppi.us
@@ -103,28 +113,34 @@ class ControllerDeployExec extends ClassRender implements InterfaceView
         } elseif ($project == 1) { // Zuump
             $ssh->write("cd /var/www/html/zuump && sudo git pull && sudo php artisan route:cache\n"); // in case you're using Laravel
         } 
-        /*
-        elseif ($project == 2) { // Lacoprofissional.tv
-            $ssh->write("cd /var/www/html/lacoprofissional2 && sudo git pull\n");
-        }
-        */
+        // elseif ($project == 2) { // Lacoprofissional.tv
+            // $ssh->write("cd /var/www/html/lacoprofissional2 && sudo git pull\n");
+        // }
         $ssh->read('[prompt]');
     }
+    */
     
     // Oracle server
     public function git_pull_in_server_2($project)
     {
-        $key = PublicKeyLoader::load(file_get_contents('C:\Users\User\Downloads\private.ppk'));
+        $key = $project == 2 ? PublicKeyLoader::load(file_get_contents('C:\Users\User\Documentos\Extra\bbtracker\bbtracker.ppk')) : PublicKeyLoader::load(file_get_contents('C:\Users\User\Documentos\Extra\olimppius\olimppius.ppk'));
 
-        $ssh = new SSH2('222.22.22.22');
+        $ssh = $project == 2 ? new SSH2('129.148.61.196') : new SSH2('152.67.32.77');
+
         $ssh->login('ubuntu', $key);
 
         $ssh->read('[prompt]');
+        // $ssh->write("cd /var/www/html/olimppius");
         if ($project == 0) { // Olimppi.us
             $ssh->write("cd /var/www/html/olimppius && sudo git pull && sudo php artisan route:cache\n");
         } elseif ($project == 1) { // Zuump
             $ssh->write("cd /var/www/html/zuump && sudo git pull && sudo php artisan route:cache\n"); // in case you're using Laravel
-        } 
+        } elseif ($project == 2) { // BBTracker
+            $ssh->write("cd /var/www/html/bbtracker/client && sudo git pull\n"); // && sudo yarn build
+            // $ssh->write("cd /var/www/html/bbtracker && sudo bash deploy.sh\n");
+        }
         $ssh->read('[prompt]');
+        // $result = ['success' => true, 'output' => $ssh->read('[prompt]')];
+        // echo json_encode($result);
     }
 }
